@@ -1,0 +1,84 @@
+.jobBgContainer {
+  background-color: black;
+  padding: 3rem 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.jobSpecificCard {
+  width: 90%;
+}
+.descriptionAndWebsiteUrl {
+  display: flex;
+  justify-content: space-between;
+}
+.websiteLink {
+  color: rgb(0, 184, 245);
+  font-size: 18px;
+}
+.skillsContainer {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.companyLifeStyle {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+.companyLifeStyle > p {
+  width: 65%;
+  font-size: 1.2rem;
+}
+.companyLifeStyle > img {
+  width: 30%;
+  border-radius: 10px;
+}
+.similarJobsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.similarJobsTitle {
+  color: white;
+  align-self: flex-start;
+  margin-bottom: 1.5rem;
+}
+.similarJobsbgContainer {
+  width: 90%;
+  margin-top: 3rem;
+}
+.loader {
+  background-color: black;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.failureView {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  min-height: 85vh;
+  color: white;
+}
+.failureView > img {
+  width: 40%;
+}
+.retryBtn {
+  color: white;
+  background-color: blue;
+  border: 0 solid;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+.jobSpecificFailure {
+  background-color: black;
+}
+.jobSpecificFailure > img {
+  width: 30%;
+}

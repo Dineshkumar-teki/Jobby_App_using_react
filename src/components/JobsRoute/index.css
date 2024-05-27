@@ -1,0 +1,108 @@
+.jobsRouteContainer {
+  display: flex;
+  gap: 1rem;
+  background-color: black;
+  padding: 2rem 3rem;
+  min-height: 85vh;
+}
+.profileAndFilters {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.profileCard {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+  background-size: cover;
+  background-position: center;
+  padding: 1.5rem 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.profileCard > h1 {
+  color: #4f46e5;
+}
+.profileCard > p {
+  color: gray;
+}
+.employmentTypesListCard,
+.salariesListCard {
+  padding: 0 1rem;
+  color: white;
+}
+.employmentTypesListCard > h1,
+.salariesListCard > h1 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 0.5rem;
+}
+.eachcheckbox {
+  display: flex;
+  gap: 0.5rem;
+}
+.eachcheckbox > label {
+  font-size: 14px;
+  align-self: center;
+}
+hr {
+  border: 1px solid #807af098;
+}
+.userInputContainser {
+  display: flex;
+}
+.userSerachInput {
+  padding: 10px 12px;
+  font-size: 16px;
+  width: 40%;
+  border-radius: 5px 0 0 5px;
+  border: 0 solid;
+  outline: none;
+}
+.jobsAndSearch {
+  width: 70%;
+}
+.searchButton {
+  border: 0 solid;
+  outline: none;
+  padding: 0 10px;
+  border-radius: 0 5px 5px 0;
+}
+.jobsListCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.loaderjobs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+}
+.profileloader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 210px;
+}
+.noJobsView {
+  color: white;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.noJobsView > img {
+  width: 40%;
+}

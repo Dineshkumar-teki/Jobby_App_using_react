@@ -1,0 +1,11 @@
+.skillCard {
+  display: flex;
+  gap: 2rem;
+}
+.skillCard > img {
+  width: 80px;
+  align-self: center;
+}
+.skillCard > p {
+  align-self: center;
+}

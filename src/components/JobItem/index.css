@@ -1,0 +1,54 @@
+.jobCard {
+  background-color: #272727;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.companyLogoCard {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.3rem;
+}
+.companyLogoCard > img {
+  width: 90px;
+}
+.titleAndRating {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ratingCard,
+.locationCard,
+.employmentTypeCard {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.startIcon {
+  color: gold;
+  font-size: 1.5rem;
+  align-self: center;
+}
+.ratingCard > p,
+.locationCard > p,
+.employmentTypeCard > p,
+.packagePerAnnum {
+  font-weight: 500;
+  font-size: 1.3rem;
+  align-self: center;
+}
+.locationAndPackage {
+  display: flex;
+  justify-content: space-between;
+}
+.locAndEmp {
+  display: flex;
+  gap: 1.5rem;
+}
+.locationIcon,
+.caseIcon {
+  font-size: 1.5rem;
+}
