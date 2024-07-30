@@ -1,12 +1,28 @@
-.similarJobBgCard {
-  background-color: #272727;
-  padding: 2rem 1rem;
-  border-radius: 10px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+@media (max-width: 425px) {
+  .similarJobBgCard {
+    background-color: #272727;
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .similarComTitle {
+    font-size: 1.7rem;
+  }
 }
-.similarComTitle {
-  font-size: 1.7rem;
+@media (min-width: 426px) {
+  .similarJobBgCard {
+    background-color: #272727;
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .similarComTitle {
+    font-size: 1.7rem;
+  }
 }

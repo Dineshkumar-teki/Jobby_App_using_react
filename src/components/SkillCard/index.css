@@ -1,11 +1,30 @@
-.skillCard {
-  display: flex;
-  gap: 2rem;
+@media (max-width: 425px) {
+  .skillCard {
+    display: flex;
+    gap: .5rem;
+  }
+  .skillCard > img {
+    width: 30px;
+    align-self: center;
+    object-fit: cover;
+    transition: 1s;
+  }
+  .skillCard > p {
+    align-self: center;
+    font-size: .9rem;
+  }
 }
-.skillCard > img {
-  width: 80px;
-  align-self: center;
-}
-.skillCard > p {
-  align-self: center;
+@media (min-width: 426px) {
+  .skillCard {
+    display: flex;
+    gap: 2rem;
+  }
+  .skillCard > img {
+    width: 80px;
+    align-self: center;
+    object-fit: cover;
+  }
+  .skillCard > p {
+    align-self: center;
+  }
 }

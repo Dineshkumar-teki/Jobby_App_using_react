@@ -82,7 +82,6 @@ class JobItemDetails extends Component {
       rating,
       companyWebsiteUrl,
       skills,
-      id,
       lifeAtCompany,
     } = jobSpecificDetails
     const lifeAtCompanyForm = {
@@ -116,9 +115,9 @@ class JobItemDetails extends Component {
             </div>
             <p className="packagePerAnnum">{packagePerAnnum}</p>
           </div>
-          <hr />
+          <hr className="hr" />
           <div className="descriptionAndWebsiteUrl">
-            <h2>Description</h2>
+            <h2 className="jobdescriptionTitle">Description</h2>
             <a
               href={companyWebsiteUrl}
               className="websiteLink"
@@ -128,14 +127,14 @@ class JobItemDetails extends Component {
               Visit <FaExternalLinkAlt />
             </a>
           </div>
-          <p>{jobDescription}</p>
-          <h2>Skills</h2>
+          <p className="jobdescription">{jobDescription}</p>
+          <h2 className="jobdescriptionTitle">Skills</h2>
           <ul className="skillsContainer">
             {skills.map(eachSkill => (
               <SkillCard eachSkill={eachSkill} key={eachSkill.name} />
             ))}
           </ul>
-          <h2>Life at Company</h2>
+          <h2 className="jobdescriptionTitle">Life at Company</h2>
           <div className="companyLifeStyle">
             <p>{description}</p>
             <img src={imageUrl} alt="" />
@@ -171,7 +170,11 @@ class JobItemDetails extends Component {
             />
             <h1>Oops! Something Went Wrong</h1>
             <p>We cannot seem to find the page you are looking fro.</p>
-            <button className="retryBtn" onClick={this.reloadjobDetails}>
+            <button
+              type="button"
+              className="retryBtn"
+              onClick={this.reloadjobDetails}
+            >
               Retry
             </button>
           </div>

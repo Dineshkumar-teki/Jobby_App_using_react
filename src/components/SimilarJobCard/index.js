@@ -34,8 +34,8 @@ const SimilarJobCard = props => {
           </div>
         </div>
       </div>
-      <h2>Description</h2>
-      <p>{jobDescription}</p>
+      <h2 className="jobdescriptionTitle">Description</h2>
+      <p className="jobdescription">{jobDescription}</p>
       <div className="locAndEmp">
         <div className="locationCard">
           <IoLocationSharp className="locationIcon" />

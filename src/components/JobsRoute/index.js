@@ -24,6 +24,28 @@ const employmentTypesList = [
     employmentTypeId: 'INTERNSHIP',
   },
 ]
+const locationsList = [
+  {
+    label: 'Hyderabad',
+    locationId: 'HYDERABAD',
+  },
+  {
+    label: 'Bangalore',
+    locationId: 'BANGALORE',
+  },
+  {
+    label: 'Chennai',
+    locationId: 'CHENNAI',
+  },
+  {
+    label: 'Delhi',
+    locationId: 'DELHI',
+  },
+  {
+    label: 'Mumbai',
+    locationId: 'MUMBAI',
+  },
+]
 const salaryRangesList = [
   {
     salaryRangeId: '1000000',
@@ -53,6 +75,7 @@ class JobsRoute extends Component {
   state = {
     userProfile: [],
     employmentTypes: [],
+    locations: [],
     salaryRanges: '',
     searchInput: '',
     jobsList: [],
@@ -69,10 +92,12 @@ class JobsRoute extends Component {
 
   getJobsDetailsList = async () => {
     this.setState({jobsViewStatus: statesView.loading})
-    const {salaryRanges, searchInput, employmentTypes} = this.state
+    const {salaryRanges, searchInput, employmentTypes, locations} = this.state
     const employmentTypesInStr = employmentTypes.join(',')
+    const stringifiedLocations = locations.join(',')
+    console.log(stringifiedLocations)
     const jwtToken = Cookies.get('jwt_token')
-    const jobsUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentTypesInStr}&minimum_package=${salaryRanges}&search=${searchInput}`
+    const jobsUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentTypesInStr}&minimum_package=${salaryRanges}&search=${searchInput}&location=${stringifiedLocations}`
     const options = {
       method: 'GET',
       headers: {
@@ -155,6 +180,23 @@ class JobsRoute extends Component {
     }
   }
 
+  getSelectedLocation = id => {
+    const {locations} = this.state
+    if (locations.includes(id)) {
+      this.setState(
+        prevState => ({
+          locations: prevState.locations.filter(eachId => eachId !== id),
+        }),
+        this.getJobsDetailsList,
+      )
+    } else {
+      this.setState(
+        prevState => ({locations: [...prevState.locations, id]}),
+        this.getJobsDetailsList,
+      )
+    }
+  }
+
   getSelectedSalaryRange = id => {
     this.setState({salaryRanges: id}, this.getJobsDetailsList)
   }
@@ -182,7 +224,11 @@ class JobsRoute extends Component {
       case statesView.failure:
         return (
           <div className="profileloader">
-            <button className="retryBtn" onClick={this.reloadProfileUrl}>
+            <button
+              type="button"
+              className="retryBtn"
+              onClick={this.reloadProfileUrl}
+            >
               Retry
             </button>
           </div>
@@ -204,7 +250,7 @@ class JobsRoute extends Component {
 
   displayJobsList = () => {
     const {jobsList} = this.state
-    console.log(jobsList)
+    // console.log(jobsList)
     if (jobsList.length > 0) {
       return (
         <ul className="jobsListCard">
@@ -240,7 +286,11 @@ class JobsRoute extends Component {
             />
             <h1>Oops! Something Went Wrong</h1>
             <p>We cannot seem to find the page you are looking fro.</p>
-            <button className="retryBtn" onClick={this.reloadJobsListUrl}>
+            <button
+              type="button"
+              className="retryBtn"
+              onClick={this.reloadJobsListUrl}
+            >
               Retry
             </button>
           </div>
@@ -257,11 +307,26 @@ class JobsRoute extends Component {
   }
 
   render() {
-    const {jobsList} = this.state
     return (
       <>
         <Header />
         <div className="jobsRouteContainer">
+          <div className="userInputContainserMobile">
+            <input
+              type="search"
+              className="userSerachInput"
+              placeholder="Search..."
+              onChange={this.userSearchInput}
+            />
+            <button
+              type="button"
+              data-testid="searchButton"
+              className="searchButton"
+              aria-label="search"
+            >
+              <BsSearch className="search-icon" />
+            </button>
+          </div>
           <div className="profileAndFilters">
             {this.getProfileStatus()}
             <hr />
@@ -269,7 +334,7 @@ class JobsRoute extends Component {
               <h1>Type of Employment</h1>
               <ul className="checkboxes">
                 {employmentTypesList.map(eachItem => {
-                  const onChangeEmployeType = event => {
+                  const onChangeEmployeType = () => {
                     this.getEmployeeTypeOption(eachItem.employmentTypeId)
                   }
                   return (
@@ -314,6 +379,29 @@ class JobsRoute extends Component {
                 })}
               </ul>
             </div>
+            <hr />
+            <div className="locationsListCard">
+              <h1>Location</h1>
+              <ul className="checkboxes">
+                {locationsList.map(eachPoint => {
+                  const onChangeLocation = () => {
+                    this.getSelectedLocation(eachPoint.locationId)
+                  }
+                  return (
+                    <li key={eachPoint.locationId} className="eachcheckbox">
+                      <input
+                        type="checkbox"
+                        id={eachPoint.locationId}
+                        onChange={onChangeLocation}
+                      />
+                      <label htmlFor={eachPoint.locationId}>
+                        {eachPoint.label}
+                      </label>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
           </div>
           <div className="jobsAndSearch">
             <div className="userInputContainser">
@@ -327,6 +415,7 @@ class JobsRoute extends Component {
                 type="button"
                 data-testid="searchButton"
                 className="searchButton"
+                aria-label="search"
               >
                 <BsSearch className="search-icon" />
               </button>

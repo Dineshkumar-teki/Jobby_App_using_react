@@ -1,6 +1,6 @@
 import './index.css'
 
-const NotFound = () => (
+const NotFoundRoute = () => (
   <div className="notFoundContainer">
     <img
       src="https://assets.ccbp.in/frontend/react-js/jobby-app-not-found-img.png"
@@ -10,4 +10,4 @@ const NotFound = () => (
     <p>We are sorry, the page you requested could not be found</p>
   </div>
 )
-export default NotFound
+export default NotFoundRoute

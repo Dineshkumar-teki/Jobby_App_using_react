@@ -17,36 +17,38 @@ const JobItem = props => {
     id,
   } = eachJobItem
   return (
-    <Link to={`/jobs/${id}`}>
-      <div className="jobCard">
-        <div className="companyLogoCard">
-          <img src={companyLogoUrl} alt="company logo" />
-          <div className="titleAndRating">
-            <h1>{title}</h1>
-            <div className="ratingCard">
-              <FaStar className="startIcon" />
-              <p>{rating}</p>
+    <li className="jobItem">
+      <Link to={`/jobs/${id}`}>
+        <div className="jobCard">
+          <div className="companyLogoCard">
+            <img src={companyLogoUrl} alt="company logo" />
+            <div className="titleAndRating">
+              <h1>{title}</h1>
+              <div className="ratingCard">
+                <FaStar className="startIcon" />
+                <p>{rating}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="locationAndPackage">
-          <div className="locAndEmp">
-            <div className="locationCard">
-              <IoLocationSharp className="locationIcon" />
-              <p>{location}</p>
+          <div className="locationAndPackage">
+            <div className="locAndEmp">
+              <div className="locationCard">
+                <IoLocationSharp className="locationIcon" />
+                <p>{location}</p>
+              </div>
+              <div className="employmentTypeCard">
+                <BsBriefcaseFill className="caseIcon" />
+                <p>{employmentType}</p>
+              </div>
             </div>
-            <div className="employmentTypeCard">
-              <BsBriefcaseFill className="caseIcon" />
-              <p>{employmentType}</p>
-            </div>
+            <p className="packagePerAnnum">{packagePerAnnum}</p>
           </div>
-          <p className="packagePerAnnum">{packagePerAnnum}</p>
+          <hr />
+          <h2 className="jobdescriptionTitle">Description</h2>
+          <p className="jobdescription">{jobDescription}</p>
         </div>
-        <hr />
-        <h2>Description</h2>
-        <p>{jobDescription}</p>
-      </div>
-    </Link>
+      </Link>
+    </li>
   )
 }
 
