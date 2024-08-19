@@ -1,7 +1,7 @@
 @media (max-width: 425px) {
   .skillCard {
     display: flex;
-    gap: .5rem;
+    gap: 0.5rem;
   }
   .skillCard > img {
     width: 30px;
@@ -11,7 +11,7 @@
   }
   .skillCard > p {
     align-self: center;
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
 }
 @media (min-width: 426px) {
